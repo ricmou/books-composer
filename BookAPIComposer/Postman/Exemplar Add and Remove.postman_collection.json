@@ -1,0 +1,696 @@
+{
+	"info": {
+		"_postman_id": "e957f8de-0b12-46ec-aea4-648e94cdf8e6",
+		"name": "Exemplar Add and Remove",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Authors1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"authorId\": \"TE1\",\r\n    \"firstName\": \"Test\",\r\n    \"lastName\": \"One\",\r\n    \"birthDate\": \"01/05/1990\",\r\n    \"country\": \"US\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:4001/api/Author/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"api",
+						"Author",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Category1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"categoryId\": \"TE1\",\r\n    \"name\": \"Test1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:4001/api/Category",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"api",
+						"Category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Publisher",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"publisherId\": \"TE1\",\r\n    \"name\": \"Test oen\",\r\n    \"country\": \"DK\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:4001/api/Publisher",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"api",
+						"Publisher"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Book",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"978-6666666666\",\r\n    \"title\": \"Test1\",\r\n    \"language\": \"es-MX\",\r\n    \"description\": [\r\n        {\r\n            \"text\": \"Test1\",\r\n            \"language\": \"en-GB\"\r\n        }\r\n    ],\r\n    \"publisherId\": \"TE1\",\r\n    \"authors\": [\r\n        \"TE1\"\r\n    ],\r\n    \"categories\": [\r\n        \"TE1\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:4001/api/BookComposer/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"api",
+						"BookComposer",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register Client",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.collectionVariables.set(\"client_id\", pm.response.json().clientId);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Guy\",\r\n    \"street\": \"Street 1\",\r\n    \"local\": \"Localized\",\r\n    \"postalCode\": \"4444-444\",\r\n    \"country\": \"US\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:4001/api/Client/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"api",
+						"Client",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register Client 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.collectionVariables.set(\"client_id2\", pm.response.json().clientId);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Another Guy\",\r\n    \"street\": \"Street 2\",\r\n    \"local\": \"Unlocalized\",\r\n    \"postalCode\": \"4444-666\",\r\n    \"country\": \"ZA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:4001/api/Client/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"api",
+						"Client",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register Exemplar",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.collectionVariables.set(\"exemplar_id\", pm.response.json().exemplarId);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"bookId\": \"978-6666666666\",\r\n    \"bookState\": 2,\r\n    \"sellerId\": \"{{client_id}}\",\r\n    \"dateOfAcquisition\": \"05/01/2017\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:4001/api/Exemplar/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"api",
+						"Exemplar",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Exemplar",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Value Testing\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.book.id).to.eql(\"978-6666666666\");\r",
+							"    pm.expect(jsonData.book.title).to.eql(\"Test1\");\r",
+							"    pm.expect(jsonData.book.language).to.eql(\"es-MX\");\r",
+							"    pm.expect(jsonData.book.description[0].text).to.eql(\"Test1\");\r",
+							"    pm.expect(jsonData.book.description[0].language).to.eql(\"en-GB\");\r",
+							"    pm.expect(jsonData.book.publisher.publisherId).to.eql(\"TE1\");\r",
+							"    pm.expect(jsonData.book.publisher.name).to.eql(\"Test oen\");\r",
+							"    pm.expect(jsonData.book.publisher.country).to.eql(\"DK\");\r",
+							"    pm.expect(jsonData.book.authors[0].authorId).to.eql(\"TE1\");\r",
+							"    pm.expect(jsonData.book.authors[0].firstName).to.eql(\"Test\");\r",
+							"    pm.expect(jsonData.book.authors[0].lastName).to.eql(\"One\");\r",
+							"    pm.expect(jsonData.book.authors[0].birthDate).to.eql(\"01/05/1990\");\r",
+							"    pm.expect(jsonData.book.authors[0].country).to.eql(\"US\");\r",
+							"    pm.expect(jsonData.book.categories[0].categoryId).to.eql(\"TE1\");\r",
+							"    pm.expect(jsonData.book.categories[0].name).to.eql(\"Test1\");\r",
+							"    var exemplarID = pm.variables.get(\"exemplar_id\");\r",
+							"    pm.expect(jsonData.exemplars[0].exemplarId).to.eql(exemplarID);\r",
+							"    pm.expect(jsonData.exemplars[0].bookState).to.eql(2);\r",
+							"    pm.expect(jsonData.exemplars[0].dateOfAcquisition).to.eql(\"05/01/2017\");\r",
+							"    var clientId = pm.variables.get(\"client_id\");\r",
+							"    pm.expect(jsonData.exemplars[0].seller.clientId).to.eql(clientId);\r",
+							"    pm.expect(jsonData.exemplars[0].seller.name).to.eql(\"Guy\");\r",
+							"    pm.expect(jsonData.exemplars[0].seller.street).to.eql(\"Street 1\");\r",
+							"    pm.expect(jsonData.exemplars[0].seller.local).to.eql(\"Localized\");\r",
+							"    pm.expect(jsonData.exemplars[0].seller.postalCode).to.eql(\"4444-444\");\r",
+							"    pm.expect(jsonData.exemplars[0].seller.country).to.eql(\"US\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:4001/api/ExemplarComposer/978-6666666666",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"api",
+						"ExemplarComposer",
+						"978-6666666666"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change Exemplar",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"exemplarId\": \"{{exemplar_id}}\",\r\n    \"bookId\": \"978-6666666666\",\r\n    \"bookState\": 3,\r\n    \"sellerId\": \"{{client_id2}}\",\r\n    \"dateOfAcquisition\": \"15/11/2018\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:4001/api/Exemplar/{{exemplar_id}}",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"api",
+						"Exemplar",
+						"{{exemplar_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Exemplar After Changes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Value Testing\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.book.id).to.eql(\"978-6666666666\");\r",
+							"    pm.expect(jsonData.book.title).to.eql(\"Test1\");\r",
+							"    pm.expect(jsonData.book.language).to.eql(\"es-MX\");\r",
+							"    pm.expect(jsonData.book.description[0].text).to.eql(\"Test1\");\r",
+							"    pm.expect(jsonData.book.description[0].language).to.eql(\"en-GB\");\r",
+							"    pm.expect(jsonData.book.publisher.publisherId).to.eql(\"TE1\");\r",
+							"    pm.expect(jsonData.book.publisher.name).to.eql(\"Test oen\");\r",
+							"    pm.expect(jsonData.book.publisher.country).to.eql(\"DK\");\r",
+							"    pm.expect(jsonData.book.authors[0].authorId).to.eql(\"TE1\");\r",
+							"    pm.expect(jsonData.book.authors[0].firstName).to.eql(\"Test\");\r",
+							"    pm.expect(jsonData.book.authors[0].lastName).to.eql(\"One\");\r",
+							"    pm.expect(jsonData.book.authors[0].birthDate).to.eql(\"01/05/1990\");\r",
+							"    pm.expect(jsonData.book.authors[0].country).to.eql(\"US\");\r",
+							"    pm.expect(jsonData.book.categories[0].categoryId).to.eql(\"TE1\");\r",
+							"    pm.expect(jsonData.book.categories[0].name).to.eql(\"Test1\");\r",
+							"    var exemplarID = pm.variables.get(\"exemplar_id\");\r",
+							"    pm.expect(jsonData.exemplars[0].exemplarId).to.eql(exemplarID);\r",
+							"    pm.expect(jsonData.exemplars[0].bookState).to.eql(3);\r",
+							"    pm.expect(jsonData.exemplars[0].dateOfAcquisition).to.eql(\"15/11/2018\");\r",
+							"    var clientId = pm.variables.get(\"client_id2\");\r",
+							"    pm.expect(jsonData.exemplars[0].seller.clientId).to.eql(clientId);\r",
+							"    pm.expect(jsonData.exemplars[0].seller.name).to.eql(\"Another Guy\");\r",
+							"    pm.expect(jsonData.exemplars[0].seller.street).to.eql(\"Street 2\");\r",
+							"    pm.expect(jsonData.exemplars[0].seller.local).to.eql(\"Unlocalized\");\r",
+							"    pm.expect(jsonData.exemplars[0].seller.postalCode).to.eql(\"4444-666\");\r",
+							"    pm.expect(jsonData.exemplars[0].seller.country).to.eql(\"ZA\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:4001/api/ExemplarComposer/978-6666666666",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"api",
+						"ExemplarComposer",
+						"978-6666666666"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Exemplar",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:4001/api/Exemplar/{{exemplar_id}}",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"api",
+						"Exemplar",
+						"{{exemplar_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Book",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:4001/api/BookComposer/978-6666666666",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"api",
+						"BookComposer",
+						"978-6666666666"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Publisher",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:4001/api/Publisher/TE1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"api",
+						"Publisher",
+						"TE1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Category 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:4001/api/Category/TE1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"api",
+						"Category",
+						"TE1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Author 1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:4001/api/Author/TE1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "4001",
+					"path": [
+						"api",
+						"Author",
+						"TE1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "exemplar_id",
+			"value": "null",
+			"type": "default"
+		},
+		{
+			"key": "exemplar_id2",
+			"value": "null",
+			"type": "default"
+		},
+		{
+			"key": "client_id",
+			"value": "null",
+			"type": "default"
+		},
+		{
+			"key": "client_id2",
+			"value": ""
+		}
+	]
+}

@@ -1,0 +1,76 @@
+syntax = "proto3";
+
+package APIBooksRPC;
+
+import "google/protobuf/empty.proto";
+
+option java_multiple_files = true;
+option java_package = "co.mouris.protofileslib.book";
+option java_outer_classname = "APIBooksRepoProto";
+
+// The Books service definition.
+service APIBooksBookGRPC {
+  // Retrieves a specific book
+  rpc GetBookByISBN (RequestWithISBN) returns (BookGrpcDto);
+
+  // Retrieves all books of Language
+  rpc GetAllBooksOfLanguage (RequestWithLanguage) returns (stream BookGrpcDto);
+
+  // Retrieves all books
+  rpc GetAllBooks (google.protobuf.Empty) returns (stream BookGrpcDto);
+
+  // Add a new book
+  rpc AddNewBook (CreatingBookGrpcDto) returns (BookGrpcDto);
+
+  // Modify a Book
+  rpc ModifyBook (BookGrpcDto) returns (BookGrpcDto);
+
+  // Delete a book
+  rpc DeleteBook (RequestWithISBN) returns (DeleteSuccess);
+}
+
+///////////////////
+//Business Bodies//
+///////////////////
+
+// Book Response
+message BookGrpcDto {
+  string ISBN = 1;
+  string Name = 2;
+  string Language = 3;
+  repeated DescriptionGrpcDto Descriptions = 4;
+}
+
+message CreatingBookGrpcDto {
+  string ISBN = 1;
+  string Name = 2;
+  string Language = 3;
+  repeated DescriptionGrpcDto Descriptions = 4;
+}
+
+message DescriptionGrpcDto
+{
+  string Text = 1;
+  string Language = 2;
+}
+
+//////////////////
+//Request Bodies//
+//////////////////
+
+// Request With ISBN
+message RequestWithISBN {
+  string ISBN = 1;
+}
+
+// Language
+message RequestWithLanguage {
+  string language = 1;
+}
+
+////////////////////
+//Request Response//
+////////////////////
+message DeleteSuccess {
+  bool success = 1;
+}
